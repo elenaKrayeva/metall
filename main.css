@@ -52,23 +52,10 @@ h3 {
 }
 
 /* КОНТАКТЫ */
-
 .header__contacts,
 .header__btn {
   display: none;
 }
-
-/* .header__contacts {
-  flex: 1;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-  display: none;
-}
-.header__btn {
-display: none;
-} */
 
 @media (min-width: 1024px) {
   .header__contacts {
@@ -78,9 +65,9 @@ display: none;
     align-items: center;
     gap: 20px;
   }
-  
+
   .header__btn {
-    display: flex; 
+    display: flex;
   }
 }
 
@@ -92,7 +79,7 @@ display: none;
 }
 
 .contact-item .material-icons {
-  color: #ffa500; 
+  color: #ffa500;
 }
 
 .contact-text {
@@ -111,7 +98,7 @@ display: none;
 }
 
 .contact-value a:hover {
-  text-decoration: underline;
+  color: #ffa500;
 }
 
 .contact-icons {
@@ -127,7 +114,7 @@ display: none;
 }
 
 .contact-icons a:hover .material-icons {
-  color: #ff8c00; 
+  color: #ff8c00;
 }
 
 /* КНОПКА (Заказать звонок) */
@@ -145,6 +132,7 @@ display: none;
   background-color: #ff8c00;
 }
 
+/* Меню-бургер */
 .header__menu-btn {
   margin-top: 10px;
   width: 30px;
@@ -171,28 +159,101 @@ display: none;
 }
 
 /* ------------------ НАВИГАЦИЯ ------------------ */
-.header__bottom {
-  background-color: transparent;
-  padding: 10px 0;
+
+/* Мобильная версия */
+@media (max-width: 1023px) {
+  .header__bottom {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(17, 17, 17, 0.95);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .header__bottom.active {
+    left: 0;
+  }
+
+  .menu-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .menu-close span {
+    font-size: 32px;
+    color: #ffa500;
+    transition: color 0.3s ease;
+  }
+
+  .menu-close:hover span {
+    color: #ff8c00;
+  }
+
+  .header__bottom .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 60px;
+  }
+
+  .header__bottom .nav a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color 0.3s ease;
+  }
+
+  .header__bottom .nav a:last-child {
+    border-bottom: none;
+  }
+
+  .header__bottom .nav a:hover {
+    color: #ff8c00;
+  }
 }
 
-.nav {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-}
+@media (min-width: 1024px) {
+  .header__bottom {
+    position: static;
+    left: auto;
+    width: auto;
+    height: auto;
+    background: transparent;
+    padding: 10px 0;
+    transition: none;
+  }
 
-.nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
+  .menu-close {
+    display: none;
+  }
 
-.nav a:hover {
-  color: #ffa500;
-}
+  .nav {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+  }
 
+  .nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 0;
+    border: none;
+  }
+
+  .nav a:hover {
+    color: #ffa500;
+  }
+}
 
 /* ------------------ HERO ------------------ */
 .hero {
