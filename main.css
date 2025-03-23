@@ -12,7 +12,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* ------------------ Основные заголовки ------------------ */
 h1,
 h2,
 h3 {
@@ -37,10 +36,10 @@ h3 {
 }
 
 .header__top-inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  column-gap: 20px;
+  gap: 20px;
 }
 
 /* ЛОГОТИП */
@@ -53,11 +52,36 @@ h3 {
 }
 
 /* КОНТАКТЫ */
-.header__contacts {
+
+.header__contacts,
+.header__btn {
+  display: none;
+}
+
+/* .header__contacts {
+  flex: 1;
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 20px;
+  display: none;
+}
+.header__btn {
+display: none;
+} */
+
+@media (min-width: 1024px) {
+  .header__contacts {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .header__btn {
+    display: flex; 
+  }
 }
 
 /* Адрес и телефон */
@@ -68,7 +92,7 @@ h3 {
 }
 
 .contact-item .material-icons {
-  color: #ffa500; /* Оранжевые иконки */
+  color: #ffa500; 
 }
 
 .contact-text {
@@ -90,7 +114,6 @@ h3 {
   text-decoration: underline;
 }
 
-/* ИКОНКИ МЕССЕНДЖЕРОВ */
 .contact-icons {
   display: flex;
   gap: 10px;
@@ -104,7 +127,7 @@ h3 {
 }
 
 .contact-icons a:hover .material-icons {
-  color: #ff8c00; /* Оранжевые иконки при наведении */
+  color: #ff8c00; 
 }
 
 /* КНОПКА (Заказать звонок) */
@@ -120,6 +143,31 @@ h3 {
 
 .btn:hover {
   background-color: #ff8c00;
+}
+
+.header__menu-btn {
+  margin-top: 10px;
+  width: 30px;
+  height: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.header__menu-btn span {
+  display: block;
+  height: 3px;
+  background-color: #ffa500;
+  transition: background-color 0.3s ease;
+}
+.header__menu-btn:hover span {
+  background-color: #ff8c00;
+}
+
+@media (min-width: 1024px) {
+  .header__menu-btn {
+    display: none;
+  }
 }
 
 /* ------------------ НАВИГАЦИЯ ------------------ */
@@ -144,6 +192,7 @@ h3 {
 .nav a:hover {
   color: #ffa500;
 }
+
 
 /* ------------------ HERO ------------------ */
 .hero {
