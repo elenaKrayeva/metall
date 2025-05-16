@@ -46,6 +46,7 @@ h3 {
 .logo {
   width: 60px;
   height: 60px;
+  cursor: poiner;
 }
 .logo-img {
   width: 100px;
@@ -197,7 +198,7 @@ h3 {
 
 .header__menu-btn {
   margin-top: 10px;
-  width: 40px;
+  width: 30px;
   height: 24px;
   display: flex;
   flex-direction: column;
@@ -234,7 +235,7 @@ h3 {
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(to bottom, #FFD700, #FA6807);
+  background: linear-gradient(to bottom, #ffd700, #fa6807);
   border-radius: 5px;
   text-align: center;
   text-decoration: none;
@@ -252,7 +253,6 @@ h3 {
     display: none;
   }
 }
-
 
 /* ------------------ НАВИГАЦИЯ ------------------ */
 
@@ -363,4 +363,62 @@ h3 {
   .nav a:hover {
     color: #ffa500;
   }
+}
+
+/*-------------------------HERO------------------------*/
+
+.hero-wrapper {
+  background: url("./images/bg-hero-new.jpg") no-repeat center center/cover;
+  height: calc(100vh - 110px);
+}
+.hero-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  height: calc(100vh - 110px);
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  max-width: 30%;
+  gap: 30px;
+}
+.hero-content > h3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.95);
+}
+.hero-advantages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  color: #fff;
+  flex-wrap: wrap;
+}
+.hero-advantages-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.95);
+}
+.block-wrapper {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+.hero-icon {
+  background: linear-gradient(to bottom, #ffd700, #fa6807);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
