@@ -47,7 +47,11 @@ window.onclick = (e) => {
   if (e.target === consultModal) {
     consultModal.style.display = "none";
   }
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
 };
+
 
 const openBtn = document.getElementById("openFormBtn");
 const openBtn2 = document.getElementById("openFormBtn2");
@@ -66,11 +70,6 @@ closeBtn.onclick = () => {
   modal.style.display = "none";
 };
 
-window.onclick = (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-};
 
 const swiper = new Swiper(".swiper", {
   loop: true,
