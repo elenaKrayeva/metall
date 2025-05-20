@@ -8,6 +8,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
@@ -39,7 +43,7 @@
                   >
                     <span class="material-icons">send</span>
                   </a>
-                  <a href="viber://chat?number=+48123456789">
+                  <a href="viber://chat?number=+375297391236">
                     <span class="material-icons">chat</span>
                   </a>
                   <a href="mailto:info@metall.pl">
@@ -56,11 +60,11 @@
                   <div class="contact-title">Адрес:</div>
                   <div class="contact-value">
                     <a
-                      href="https://maps.google.com/?q=г. Минск, ул. Примерная, 1"
+                      href="https://maps.google.com/?q=г. Минск, ул. Судмалиса, 20"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      г. Минск, ул. Примерная, 1
+                      г. Минск, ул. Судмалиса, 20
                     </a>
                   </div>
                 </div>
@@ -91,7 +95,7 @@
               </div>
             </div>
             <div class="header__btn">
-              <a href="#contact-form" class="btn">Консультация специалиста</a>
+              <a href="#contact-form" class="btn" id="openFormBtn1">Консультация специалиста</a>
             </div>
 
             <div class="header__menu-btn">
@@ -112,7 +116,9 @@
             <a href="#about">О компании</a>
             <a href="#products">Продукция</a>
             <a href="#advantages">Преимущества</a>
+            <a href="#projects">Проекты</a>
             <a href="#contacts">Контакты</a>
+            <a href="#faq">FAQ</a>
             <a href="#contact-form" class="btn btn--mobile-menu"
               >Консультация специалиста</a
             >
@@ -120,7 +126,7 @@
         </div>
       </div>
     </header>
-    <div class="hero-wrapper">
+    <section class="hero-wrapper">
       <div class="container">
         <div class="hero-flex">
           <div class="hero-content">
@@ -128,43 +134,476 @@
             <h3>
               Изготовим в кратчайшие сроки. Свое производство. Доставка по РБ
             </h3>
-            <button class="btn">Рассчитать стоимость</button>
+            <button class="btn" id="openFormBtn2">Рассчитать стоимость</button>
           </div>
           <div class="hero-advantages">
             <div class="hero-advantages-block">
               <div class="block-wrapper">
                 <div class="hero-icon">
-                  <span class="material-icons" style="color: white"
-                    >support_agent</span
-                  >
+                  <span class="material-icons">support_agent</span>
                 </div>
               </div>
-              <h3>Работаем с юридическими и физическими лицами</h3>
+              <h3>Работаем с юр. и физ. лицами</h3>
             </div>
             <div class="hero-advantages-block">
               <div class="block-wrapper">
                 <div class="hero-icon">
-                  <span class="material-icons" style="color: white"
-                    >support_agent</span
-                  >
+                  <span class="material-icons">support_agent</span>
                 </div>
               </div>
-              <h3>Бесплатная консультация специалиста</h3>
+              <h3>Работаем по ГОСТ</h3>
             </div>
             <div class="hero-advantages-block">
               <div class="block-wrapper">
                 <div class="hero-icon">
-                  <span class="material-icons" style="color: white"
-                    >support_agent</span
-                  >
+                  <span class="material-icons">support_agent</span>
                 </div>
               </div>
               <h3>Консультация с выездом на объект</h3>
             </div>
+            <div class="hero-advantages-block">
+              <div class="block-wrapper">
+                <div class="hero-icon">
+                  <span class="material-icons">support_agent</span>
+                </div>
+              </div>
+              <h3>Любые объемы и проекты</h3>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+    <section class="categories" id="products">
+      <div class="container">
+        <h2 class="categories-title">Категории продукции</h2>
+        <div class="categories-grid">
+          <div class="category-card">
+            <img src="./images/angars.jpg" alt="Ангары" />
+            <h3>Ангары</h3>
+          </div>
+          <div class="category-card">
+            <img src="./images/sheds.jpg" alt="Навесы" />
+            <h3>Навесы</h3>
+          </div>
+          <div class="category-card">
+            <img src="./images/beams.jpg" alt="Сварные балки" />
+            <h3>Сварные балки</h3>
+          </div>
+          <div class="category-card">
+            <img src="./images/frames.jpg" alt="Каркасы зданий" />
+            <h3>Каркасы зданий</h3>
+          </div>
+          <div class="category-card">
+            <img src="./images/custom.jpg" alt="На заказ" />
+            <h3>Металлоконструкции на заказ</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="btn-block">
+      <div class="container form-flex">
+        <button class="btn" id="openFormBtn">Рассчитать стоимость</button>
+
+        <div id="formModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeFormBtn">&times;</span>
+            <h2>Рассчитать стоимость</h2>
+            <form class="form">
+              <label for="type">Тип конструкции</label>
+              <select id="type" name="type" required>
+                <option value="">Выберите тип</option>
+                <option value="angary">Ангары</option>
+                <option value="navesy">Навесы</option>
+                <option value="balki">Сварные балки</option>
+                <option value="karkasy">Каркасы зданий</option>
+                <option value="custom">Индивидуальный заказ</option>
+              </select>
+
+              <label for="size">Размеры (Д×Ш×В)</label>
+              <input
+                type="text"
+                id="size"
+                name="size"
+                placeholder="например, 12×6×4 м"
+                required
+              />
+
+              <label for="name">Ваше имя</label>
+              <input type="text" id="name" name="name" required />
+
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" required />
+
+              <label for="comment">Комментарий</label>
+              <textarea id="comment" name="comment" rows="4"></textarea>
+
+              <button type="submit" class="btn">Отправить заявку</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <div class="about-info" id="about">
+          <div class="about-info__image">
+            <img src="./images/logo_final.png" alt="О компании" />
+          </div>
+          <div class="about-info__text">
+            <h2 class="section-title">О компании</h2>
+            <p>
+              Наша компания — <strong>молодая</strong>, но собрана из
+              <strong>опытных профессионалов</strong>. Все сотрудники имеют
+              <strong>многолетний опыт</strong> работы в сфере
+              металлоконструкций. Мы используем
+              <strong>современное и надёжное оборудование</strong>, позволяющее
+              выполнять заказы <strong>любой сложности</strong> точно в срок.
+            </p>
+            <p>
+              Мы уверены, что <strong>ответственность — основа доверия</strong>.
+              Именно поэтому <strong>строго соблюдаем сроки</strong>, всегда
+              <strong>на связи с заказчиком</strong>, детально прорабатываем
+              каждый этап — от замеров до монтажа. Для нас важно, чтобы
+              <strong>сотрудничество было простым и комфортным</strong>.
+            </p>
+            <p>
+              <strong>С нами легко работать</strong>: мы слышим клиента,
+              предлагаем <strong>решения под конкретные задачи</strong>,
+              <strong>гарантируем результат</strong>.
+              <strong>Надёжность</strong>, <strong>качество</strong> и
+              <strong>уважение к вашему времени</strong> — вот главные принципы
+              нашей команды.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="about-video">
+        <video controls poster="">
+          <source src="./video/production.mp4" type="video/mp4" />
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
+
+      <div class="about-stats" id="advantages">
+        <div class="stat-item">
+          <div class="stat-number" data-target="800">
+            <span class="count">0</span><span class="suffix"> м²</span>
+          </div>
+          <div class="stat-label">Площадь<br />производства</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="10">
+            <span class="count">0</span><span class="suffix">+</span>
+          </div>
+          <div class="stat-label">лет опыта<br />у сотрудников</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="24">
+            <span class="count">0</span><span class="suffix">/7</span>
+          </div>
+          <div class="stat-label">Соблюдение<br />сроков</div>
+        </div>
+      </div>
+
+      <!-- Слайдер Swiper -->
+      <div class="about-slider swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/factory1.jpg" alt="Фото производства 1" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/factory2.jpg" alt="Фото производства 2" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/team.jpg" alt="Команда" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/equipment.jpg" alt="Оборудование" />
+          </div>
+        </div>
+        <!-- Навигация -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+    <section class="steps">
+      <div class="container">
+        <h2 class="section-title">Этапы работы</h2>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-circle">1</div>
+            <h3>Отправка заявки</h3>
+            <p>Вы оставляете заявку через форму или по телефону</p>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <h3>Расчет и согласование</h3>
+            <p>Мы рассчитываем стоимость и согласовываем с вами проект</p>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">3</div>
+            <h3>Производство</h3>
+            <p>Изготавливаем конструкцию на собственном оборудовании</p>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">4</div>
+            <h3>Доставка и монтаж</h3>
+            <p>Организуем доставку и, при необходимости, производим монтаж</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="portfolio" id="projects">
+      <h2>Последние проекты</h2>
+      <div class="portfolio-item">
+        <div class="portfolio-image swiper portfolio-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/bg-hero-new.jpg" alt="Фото проекта 1" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/proj1_1.jpg" alt="Фото проекта 2" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/proj1_3.jpg" alt="Фото проекта 4" />
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/proj1_4.jpg" alt="Фото проекта 5" />
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+
+        <div class="portfolio-content">
+          <h3 class="portfolio-type">Вольеры 12×30 м</h3>
+          <p><strong>Сроки:</strong> 48 дней</p>
+          <p>
+            <strong>Особенности:</strong> Металлический каркас с фермами под
+            кровлей, кровля из профнастила, бетонное основание. Проект выполнен
+            для зоопарка с учётом специфики размещения животных. Доставка в
+            Могилев. Наш монтаж.
+          </p>
+          <blockquote>
+            “Все сделали быстро и качественно. Учитывали все пожелания. Очень
+            довольны результатом!”
+          </blockquote>
+        </div>
+      </div>
+    </section>
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="section-title">Вопросы и ответы</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              Какие конструкции вы изготавливаете?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Мы производим ангары, навесы, сварные балки, металлокаркасы
+                зданий, а также конструкции по индивидуальным чертежам.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Можно ли заказать конструкцию по собственному проекту?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Да, мы работаем как по типовым, так и по индивидуальным
+                проектам. Наши инженеры помогут адаптировать ваш чертёж под
+                производство.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Сколько времени занимает производство?
+            </button>
+            <div class="faq-answer">
+              <p>
+                В среднем от 7 до 60 рабочих дней, в зависимости от сложности и
+                объёма заказа.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Вы делаете доставку по регионам?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Да, мы осуществляем доставку по всей территории Республики
+                Беларусь. Также можем организовать монтаж конструкций.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Как происходит оплата?</button>
+            <div class="faq-answer">
+              <p>
+                Стандартно работа делится на предоплату и окончательный расчёт.
+                Все условия фиксируются в договоре.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Какая гарантия на изделия?</button>
+            <div class="faq-answer">
+              <p>
+                Мы предоставляем гарантию от 12 до 36 месяцев в зависимости от
+                типа конструкции и условий эксплуатации.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Вы помогаете с проектированием?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Да, у нас есть собственный конструкторский отдел. Мы поможем с
+                разработкой проекта и оптимизацией конструкции под производство.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Какие материалы вы используете?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Мы используем только сертифицированные материалы: сталь,
+                профнастил, сэндвич-панели и другие.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Можно ли посмотреть примеры выполненных работ?
+            </button>
+            <div class="faq-answer">
+              <p>
+                Да, примеры проектов вы можете найти в разделе «Примеры работ»
+                или запросить фото конкретных объектов.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">Как оставить заявку?</button>
+            <div class="faq-answer">
+              <p>
+                Вы можете заполнить форму на сайте, позвонить нам или написать в
+                мессенджер. Мы свяжемся с вами в ближайшее время.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contacts" id="contacts">
+      <div class="container">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contacts-grid">
+          <div class="contacts-info">
+            <div class="contact-row">
+              <span class="material-icons">location_on</span>
+              <div>
+                <p class="label">Адрес:</p>
+                <p>г. Минск, ул. Судмалиса, 20</p>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <span class="material-icons">phone</span>
+              <div>
+                <p class="label">Телефон:</p>
+                <p class="contact-phone">
+                  <a href="tel:+375297391236">+375 29 739 12 36</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <span class="material-icons">email</span>
+              <div>
+                <p class="label">Почта:</p>
+                <p class="contact-phone">
+                  <a href="mailto:info@metall.by">info@metall.by</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-row messengers">
+              <div class="messenger-icons">
+                <a
+                  href="https://t.me/metall"
+                  target="_blank"
+                  aria-label="Telegram"
+                >
+                  <span class="material-icons">send</span>
+                </a>
+                <a href="viber://chat?number=+375297391236" aria-label="Viber">
+                  <span class="material-icons">chat</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="contacts-map"
+            id="yandex-map"
+            style="height: 300px; border-radius: 8px"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-cta">
+          <h3>Остались вопросы?</h3>
+          <a href="#contact-form" class="btn" id="openFormBtn3">Оставить заявку</a>
+        </div>
+    
+        <div class="footer-info">
+          <p>© 2024 ТехноСтальИнжиниринг. Все права защищены.</p>
+          <a href="/privacy-policy.html" target="_blank">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </footer>
+    <div id="consultModal" class="modal-cons">
+      <div class="modal-cons-content">
+        <span class="close-cons" id="closeConsultBtn">&times;</span>
+        <h2>Заказать консультацию</h2>
+        <form class="form">
+          <label for="consult-name">Ваше имя</label>
+          <input type="text" id="consult-name" name="consult-name" required />
+    
+          <label for="consult-phone">Телефон</label>
+          <input type="tel" id="consult-phone" name="consult-phone" required />
+    
+          <label for="consult-comment">Комментарий</label>
+          <textarea id="consult-comment" name="consult-comment" rows="3"></textarea>
+    
+          <button type="submit" class="btn">Отправить</button>
+        </form>
+      </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
     <script src="./script.js"></script>
   </body>
